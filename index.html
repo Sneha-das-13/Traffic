@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRAFFIQ - Smart AI Traffic Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js for performance visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="logo">
+      <h1>TRAFFIQ</h1>
+      <span class="badge">AI-Powered</span>
+    </div>
+    <div class="status-panel">
+      <span>System Mode: </span>
+      <button id="modeToggleBtn" class="btn btn-toggle">Mode: AI Adaptive</button>
+      <span id="liveIndicator" class="indicator online">● LIVE FEED</span>
+    </div>
+  </header>
+
+  <main class="dashboard-grid">
+
+    <!-- Section 1: Key Metrics Overview -->
+    <section class="metrics-row">
+      <div class="card metric-card">
+        <h3>Avg Waiting Time</h3>
+        <p class="metric-value" id="avgWaitTime">42 sec</p>
+        <span class="metric-change positive">↓ 46% vs Fixed</span>
+      </div>
+      <div class="card metric-card">
+        <h3>Avg Queue Length</h3>
+        <p class="metric-value" id="avgQueueLength">13 vehicles</p>
+        <span class="metric-change positive">↓ 45% vs Fixed</span>
+      </div>
+      <div class="card metric-card">
+        <h3>Processed Vehicles</h3>
+        <p class="metric-value" id="processedVehicles">527</p>
+        <span class="metric-change positive">↑ 28% throughput</span>
+      </div>
+      <div class="card metric-card">
+        <h3>Active Congestion</h3>
+        <p class="metric-value" id="congestionLevel">MODERATE</p>
+        <span class="metric-sub">North Route Priority</span>
+      </div>
+    </section>
+
+    <!-- Section 2: Four-Way Intersection & Real-Time Monitoring -->
+    <section class="card intersection-section">
+      <h2>Intersection Live Monitor</h2>
+      <div class="intersection-grid">
+
+        <!-- North Direction -->
+        <div class="direction-card north">
+          <h4>NORTH</h4>
+          <div class="dir-stats">
+            <p>Vehicles: <strong id="northCount">42</strong></p>
+            <p>Density: <span class="badge status-high" id="northDensity">HIGH</span></p>
+            <p>Signal: <span class="signal-badge green" id="northSignal">GREEN (35s)</span></p>
+          </div>
+        </div>
+
+        <!-- West Direction -->
+        <div class="direction-card west">
+          <h4>WEST</h4>
+          <div class="dir-stats">
+            <p>Vehicles: <strong id="westCount">8</strong></p>
+            <p>Density: <span class="badge status-low" id="westDensity">LOW</span></p>
+            <p>Signal: <span class="signal-badge red" id="westSignal">RED</span></p>
+          </div>
+        </div>
+
+        <!-- Center Canvas / Simulation View -->
+        <div class="canvas-container">
+          <canvas id="trafficCanvas" width="300" height="300"></canvas>
+        </div>
+
+        <!-- East Direction -->
+        <div class="direction-card east">
+          <h4>EAST</h4>
+          <div class="dir-stats">
+            <p>Vehicles: <strong id="eastCount">31</strong></p>
+            <p>Density: <span class="badge status-med" id="eastDensity">MEDIUM</span></p>
+            <p>Signal: <span class="signal-badge red" id="eastSignal">RED</span></p>
+          </div>
+        </div>
+
+        <!-- South Direction -->
+        <div class="direction-card south">
+          <h4>SOUTH</h4>
+          <div class="dir-stats">
+            <p>Vehicles: <strong id="southCount">12</strong></p>
+            <p>Density: <span class="badge status-low" id="southDensity">LOW</span></p>
+            <p>Signal: <span class="signal-badge green" id="southSignal">GREEN (35s)</span></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Performance & System Analytics -->
+    <section class="analytics-row">
+      
+      <!-- Comparison Chart -->
+      <div class="card chart-card">
+        <h2>Traditional vs AI Adaptive Performance</h2>
+        <canvas id="comparisonChart"></canvas>
+      </div>
+
+      <!-- Live Priority & System Log -->
+      <div class="card log-card">
+        <h2>Adaptive Signal Priority Log</h2>
+        <ul id="systemLog" class="log-list">
+          <li><span class="timestamp">[10:52:01]</span> Assigned 55s Green to <strong>North-South</strong> (High Density).</li>
+          <li><span class="timestamp">[10:51:00]</span> Recalculating route priority scores...</li>
+          <li><span class="timestamp">[10:50:15]</span> Queue length spike detected on <strong>North Direction</strong>.</li>
+          <li><span class="timestamp">[10:49:30]</span> Assigned 25s Green to <strong>East-West</strong>.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
