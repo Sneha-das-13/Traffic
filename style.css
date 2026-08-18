@@ -1,0 +1,210 @@
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-blue: #38bdf8;
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --border-color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  color: var(--accent-blue);
+  letter-spacing: 1.5px;
+}
+
+.badge {
+  background: #0284c7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.status-panel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.indicator {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.indicator.online {
+  color: var(--green);
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-toggle {
+  background-color: var(--accent-blue);
+  color: #000;
+}
+
+/* Dashboard Layout */
+.dashboard-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+}
+
+/* Metrics Row */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.metric-card h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.metric-change.positive {
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+.metric-sub {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Intersection Layout */
+.intersection-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.intersection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+}
+
+.direction-card {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 180px;
+  border: 1px solid var(--border-color);
+}
+
+.direction-card h4 {
+  color: var(--accent-blue);
+  margin-bottom: 6px;
+}
+
+.dir-stats p {
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+
+.north { grid-column: 2; grid-row: 1; }
+.west  { grid-column: 1; grid-row: 2; }
+.canvas-container { grid-column: 2; grid-row: 2; }
+.east  { grid-column: 3; grid-row: 2; }
+.south { grid-column: 2; grid-row: 3; }
+
+#trafficCanvas {
+  background: #334155;
+  border-radius: 8px;
+}
+
+/* Status Colors */
+.status-high { background-color: var(--red); }
+.status-med  { background-color: var(--yellow); color: #000; }
+.status-low  { background-color: var(--green); }
+
+.signal-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.signal-badge.green { background-color: var(--green); color: #000; }
+.signal-badge.red   { background-color: var(--red); color: #fff; }
+
+/* Analytics Row */
+.analytics-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.log-list {
+  list-style: none;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.log-list li {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.timestamp {
+  color: var(--text-secondary);
+}
